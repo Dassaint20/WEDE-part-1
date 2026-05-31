@@ -1,0 +1,250 @@
+/* ============================================
+   CSS Reset
+   ============================================ */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* ============================================
+   Base Styles
+   ============================================ */
+html {
+    font-size: 16px;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 1rem;
+    line-height: 1.6;
+    color: #3e2723; /* warm dark brown */
+    background-color: #fff8f0; /* warm cream */
+}
+
+/* ============================================
+   Typography
+   ============================================ */
+h1 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    color: #5d4037; /* warm brown */
+}
+
+h2 {
+    font-size: 1.8rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    color: #6d4c41;
+}
+
+p {
+    margin-bottom: 1rem;
+}
+
+/* ============================================
+   Layout - Header
+   ============================================ */
+header {
+    background-color: #5d4037;
+    color: #fff8f0;
+    padding: 1.5rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+header h1 {
+    color: #fff8f0;
+    margin-bottom: 0.5rem;
+}
+
+/* ============================================
+   Navigation
+   ============================================ */
+nav {
+    display: flex;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+}
+
+nav a {
+    color: #fff8f0;
+    text-decoration: none;
+    font-weight: 500;
+    padding: 0.5rem 0;
+    border-bottom: 2px solid transparent;
+    transition: border-color 0.3s ease;
+}
+
+nav a:hover {
+    border-bottom: 2px solid #80cbc4; /* cold teal accent */
+}
+
+nav a:focus {
+    outline: 2px solid #80cbc4;
+    outline-offset: 4px;
+}
+
+/* ============================================
+   Main Content Section
+   ============================================ */
+section {
+    max-width: 800px;
+    margin: 3rem auto;
+    padding: 0 2rem;
+    min-height: 50vh;
+}
+
+/* ============================================
+   Forms
+   ============================================ */
+form {
+    background-color: #ffffff;
+    padding: 2rem;
+    border-radius: 8px;
+    border: 1px solid #d7ccc8;
+}
+
+label {
+    font-weight: 500;
+    color: #5d4037;
+}
+
+input[type="text"],
+input[type="email"],
+textarea {
+    width: 100%;
+    padding: 0.6rem;
+    margin-top: 0.3rem;
+    margin-bottom: 1rem;
+    border: 1px solid #bcaaa4;
+    border-radius: 4px;
+    font-family: inherit;
+    font-size: 1rem;
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+textarea:focus {
+    outline: none;
+    border-color: #80cbc4;
+    box-shadow: 0 0 0 3px rgba(128, 203, 196, 0.2);
+}
+
+input[type="radio"] {
+    margin-right: 0.5rem;
+    margin-top: 0.5rem;
+}
+
+input[type="submit"] {
+    background-color: #5d4037;
+    color: #fff8f0;
+    padding: 0.7rem 2rem;
+    border: none;
+    border-radius: 4px;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+input[type="submit"]:hover {
+    background-color: #4e342e;
+}
+
+input[type="submit"]:active {
+    background-color: #3e2723;
+}
+
+/* ============================================
+   Footer
+   ============================================ */
+footer {
+    background-color: #4e342e;
+    color: #d7ccc8;
+    text-align: center;
+    padding: 1.5rem;
+    margin-top: 2rem;
+}
+
+footer p {
+    margin: 0;
+    font-size: 0.9rem;
+}
+
+/* ============================================
+   Responsive Design - Tablet
+   ============================================ */
+@media screen and (max-width: 768px) {
+    header {
+        flex-direction: column;
+        text-align: center;
+        padding: 1.5rem 1rem;
+    }
+
+    nav {
+        justify-content: center;
+        margin-top: 1rem;
+    }
+
+    h1 {
+        font-size: 2rem;
+    }
+
+    h2 {
+        font-size: 1.5rem;
+    }
+
+    section {
+        margin: 2rem auto;
+        padding: 0 1.5rem;
+    }
+}
+
+/* ============================================
+   Responsive Design - Mobile
+   ============================================ */
+@media screen and (max-width: 480px) {
+    html {
+        font-size: 15px;
+    }
+
+    header {
+        padding: 1rem;
+    }
+
+    h1 {
+        font-size: 1.7rem;
+    }
+
+    h2 {
+        font-size: 1.3rem;
+    }
+
+    nav {
+        flex-direction: column;
+        gap: 0.5rem;
+        width: 100%;
+    }
+
+    nav a {
+        padding: 0.4rem 0;
+        border-bottom: 1px solid rgba(255, 248, 240, 0.3);
+    }
+
+    nav a:hover {
+        border-bottom: 1px solid #80cbc4;
+    }
+
+    section {
+        margin: 1.5rem auto;
+        padding: 0 1rem;
+    }
+
+    form {
+        padding: 1.2rem;
+    }
+}
