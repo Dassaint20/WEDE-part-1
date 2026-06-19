@@ -3,8 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Retro Vibe - Products</title>
+    <meta name="description" content="Browse our top selling vintage football jerseys at Retro Vibe. AC Milan, Barcelona, England, France, Inter Milan, Juventus, PSG, Real Madrid retro kits.">
+    <meta name="keywords" content="vintage football jerseys, retro football shirts, AC Milan 2007, Barcelona 1999, England 1998, France 2006, Inter 1996, Juventus, PSG 2003, Real Madrid 2000">
+    <meta name="author" content="Retro Vibe">
+    <meta name="robots" content="index, follow">
+    <title>Products | Retro Vibe - Vintage Football Jerseys Collection</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="canonical" href="https://retrovibe.co.za/products.html">
 </head>
 <body>
     <header>
@@ -13,66 +18,35 @@
             <a href="Home.html">Home</a>
             <a href="about.html">About</a>
             <a href="products.html">Products</a>
+            <a href="enquiry.html">Enquiry</a>
             <a href="contact.html">Contact</a>
         </nav>
     </header>
 
     <section>
         <h2>Our Top Selling Pieces</h2>
-        <p>Check out our most popular vintage football kits. Each piece is carefully sourced and authenticated.</p>
+        <p>Check out our most popular vintage football kits. Each piece is carefully sourced and authenticated. Click on any kit to view it in full size.</p>
         
-        <div class="product-grid">
-            
-            <div class="product-card">
-                <img src="ACMilan07.jpg" alt="N/A">
-                <p class="kit-info">ACMilan/07</p>
-            </div>
-            
-            <div class="product-card">
-                <img src="Barca99.jpg" alt="N/A">
-                <p class="kit-info">Barca/99</p>
-            </div>
-            
-            <div class="product-card">
-                <img src="England98.jpg" alt="N/A">
-                <p class="kit-info">England/98</p>
-            </div>
-            
-            <div class="product-card">
-                <img src="France06.jpg" alt="N/A">
-                <p class="kit-info">France/06</p>
-            </div>
-            
-            <div class="product-card">
-                <img src="Inter96.jpg" alt="N/A">
-                <p class="kit-info">Inter/96</p>
-            </div>
-            
-            <div class="product-card">
-                <img src="Juve16.jpg" alt="N/A">
-                <p class="kit-info">Juve/16</p>
-            </div>
-            
-            <div class="product-card">
-                <img src="Juve98.jpg" alt="N/A">
-                <p class="kit-info">Juve/98</p>
-            </div>
-            
-            <div class="product-card">
-                <img src="PSG03.jpg" alt="N/A">
-                <p class="kit-info">PSG/03</p>
-            </div>
-            
-            <div class="product-card">
-                <img src="RMadrid00.jpg" alt="N/A">
-                <p class="kit-info">RMadrid/00</p>
-            </div>
-            
+        <div class="product-search">
+            <input type="text" id="productSearch" placeholder="Search kits by team name or year..." onkeyup="filterProducts()">
+        </div>
+        
+        <div class="product-grid" id="productGrid">
+            <!-- Products loaded dynamically via JavaScript -->
         </div>
     </section>
 
+    <!-- Lightbox -->
+    <div class="lightbox-overlay" id="lightbox" onclick="closeLightbox(event)">
+        <button class="lightbox-close" onclick="closeLightbox()">&times;</button>
+        <img class="lightbox-img" id="lightboxImg" src="" alt="">
+        <p class="lightbox-caption" id="lightboxCaption"></p>
+    </div>
+
     <footer>
-        <p>&copy; 2026 Retro Vibe</p>
+        <p>&copy; 2026 Retro Vibe | Vintage Football Jerseys</p>
     </footer>
+
+    <script src="script.js"></script>
 </body>
 </html>
