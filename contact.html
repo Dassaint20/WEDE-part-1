@@ -3,8 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Retro Vibe - Contact</title>
+    <meta name="description" content="Contact Retro Vibe for general enquiries about our vintage football jerseys. Email, WhatsApp, or send us a message directly.">
+    <meta name="keywords" content="contact Retro Vibe, vintage football jerseys South Africa, retro shirts contact, football fashion store">
+    <meta name="author" content="Retro Vibe">
+    <meta name="robots" content="index, follow">
+    <title>Contact Us | Retro Vibe - Get In Touch</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="canonical" href="https://retrovibe.co.za/contact.html">
 </head>
 <body>
     <header>
@@ -13,6 +18,7 @@
             <a href="Home.html">Home</a>
             <a href="about.html">About</a>
             <a href="products.html">Products</a>
+            <a href="enquiry.html">Enquiry</a>
             <a href="contact.html">Contact</a>
         </nav>
     </header>
@@ -22,32 +28,82 @@
         <p>Got a question or want to place an order? Reach out to us directly.</p>
         
         <div class="contact-details">
-            <p><strong>Email:</strong> retrovibe@email.com</p>
-            <p><strong>WhatsApp:</strong> +27 12 345 6789</p>
+            <p><strong>Email:</strong> <a href="mailto:retrovibe@email.com" style="color: #5d4037;">retrovibe@email.com</a></p>
+            <p><strong>WhatsApp:</strong> <a href="https://wa.me/27123456789" style="color: #5d4037;">+27 12 345 6789</a></p>
+            <p><strong>Location:</strong> South Africa</p>
         </div>
         
-        <form action="/action_page.php" method="post">
-            <label for="name">Name:</label><br>
-            <input type="text" id="name" name="name"><br><br>
+        <form id="contactForm" action="/action_page.php" method="post" novalidate>
+            <div class="form-group">
+                <label for="contactName">Name:</label>
+                <input type="text" id="contactName" name="name" placeholder="Your full name" required minlength="2">
+                <span class="error-message" id="contactNameError">Please enter your name (at least 2 characters).</span>
+            </div>
             
-            <label for="email">Email:</label><br>
-            <input type="email" id="email" name="email"><br><br>
+            <div class="form-group">
+                <label for="contactEmail">Email:</label>
+                <input type="email" id="contactEmail" name="email" placeholder="your@email.com" required>
+                <span class="error-message" id="contactEmailError">Please enter a valid email address.</span>
+            </div>
             
-            <label for="message">Message:</label><br>
-            <textarea id="message" name="message" rows="5" cols="30"></textarea><br><br>
+            <div class="form-group">
+                <label for="contactPhone">Phone (optional):</label>
+                <input type="tel" id="contactPhone" name="phone" placeholder="+27 12 345 6789" pattern="[\+]?[0-9\s\-]{10,15}">
+                <span class="error-message" id="contactPhoneError">Please enter a valid phone number.</span>
+            </div>
             
-            <label>Gender:</label><br>
-            <input type="radio" name="gender" value="male" id="male"> 
-            <label for="male">Male</label><br>
-            <input type="radio" name="gender" value="female" id="female"> 
-            <label for="female">Female</label><br><br>
+            <div class="form-group">
+                <label>Message Type:</label>
+                <div>
+                    <input type="radio" name="messageType" value="general" id="msgGeneral" required checked>
+                    <label for="msgGeneral" style="display: inline; font-weight: normal;">General Question</label>
+                </div>
+                <div>
+                    <input type="radio" name="messageType" value="order" id="msgOrder">
+                    <label for="msgOrder" style="display: inline; font-weight: normal;">Order Status</label>
+                </div>
+                <div>
+                    <input type="radio" name="messageType" value="feedback" id="msgFeedback">
+                    <label for="msgFeedback" style="display: inline; font-weight: normal;">Feedback</label>
+                </div>
+                <div>
+                    <input type="radio" name="messageType" value="complaint" id="msgComplaint">
+                    <label for="msgComplaint" style="display: inline; font-weight: normal;">Complaint</label>
+                </div>
+            </div>
             
-            <input type="submit" value="Send">
-        </form> 
+            <div class="form-group">
+                <label>Gender:</label>
+                <div>
+                    <input type="radio" name="gender" value="male" id="male">
+                    <label for="male" style="display: inline; font-weight: normal;">Male</label>
+                </div>
+                <div>
+                    <input type="radio" name="gender" value="female" id="female">
+                    <label for="female" style="display: inline; font-weight: normal;">Female</label>
+                </div>
+                <div>
+                    <input type="radio" name="gender" value="other" id="other">
+                    <label for="other" style="display: inline; font-weight: normal;">Prefer not to say</label>
+                </div>
+            </div>
+            
+            <div class="form-group">
+                <label for="contactMessage">Message:</label>
+                <textarea id="contactMessage" name="message" rows="5" placeholder="Type your full message here..." required minlength="10"></textarea>
+                <span class="error-message" id="contactMessageError">Please enter a message (at least 10 characters).</span>
+            </div>
+            
+            <input type="submit" value="Send Message" id="contactSubmit">
+            
+            <div class="form-response" id="contactResponse"></div>
+        </form>
     </section>
 
     <footer>
-        <p>&copy; 2026 Retro Vibe</p>
+        <p>&copy; 2026 Retro Vibe | Vintage Football Jerseys</p>
     </footer>
+
+    <script src="script.js"></script>
 </body>
 </html>
