@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Enquire about our vintage football jerseys, services, or sponsorship opportunities at Retro Vibe South Africa.">
+    <meta name="keywords" content="enquiry vintage football jerseys, retro shirt order, sponsor Retro Vibe, volunteer Retro Vibe">
+    <meta name="author" content="Retro Vibe">
+    <meta name="robots" content="index, follow">
+    <title>Enquiry | Retro Vibe - Ask About Our Vintage Football Jerseys</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="canonical" href="https://retrovibe.co.za/enquiry.html">
+</head>
+<body>
+    <header>
+        <h1>Retro Vibe</h1>
+        <nav>
+            <a href="Home.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="products.html">Products</a>
+            <a href="enquiry.html">Enquiry</a>
+            <a href="contact.html">Contact</a>
+        </nav>
+    </header>
+
+    <section>
+        <h2>Make an Enquiry</h2>
+        <p>Interested in our products, services, or want to become a volunteer or sponsor? Fill out the form below and we will get back to you with availability and pricing.</p>
+        
+        <form id="enquiryForm" action="/action_page.php" method="post" novalidate>
+            <div class="form-group">
+                <label for="enqName">Full Name:</label>
+                <input type="text" id="enqName" name="name" placeholder="Enter your full name" required minlength="2">
+                <span class="error-message" id="enqNameError">Please enter your full name (at least 2 characters).</span>
+            </div>
+            
+            <div class="form-group">
+                <label for="enqEmail">Email:</label>
+                <input type="email" id="enqEmail" name="email" placeholder="your@email.com" required>
+                <span class="error-message" id="enqEmailError">Please enter a valid email address.</span>
+            </div>
+            
+            <div class="form-group">
+                <label for="enqPhone">Phone Number:</label>
+                <input type="tel" id="enqPhone" name="phone" placeholder="+27 12 345 6789" pattern="[\+]?[0-9\s\-]{10,15}">
+                <span class="error-message" id="enqPhoneError">Please enter a valid phone number.</span>
+            </div>
+            
+            <div class="form-group enquiry-type">
+                <label>Enquiry Type:</label>
+                <div>
+                    <input type="radio" name="enquiryType" value="product" id="enqProduct" required>
+                    <label for="enqProduct" style="display: inline; font-weight: normal;">Product Order</label>
+                </div>
+                <div>
+                    <input type="radio" name="enquiryType" value="service" id="enqService">
+                    <label for="enqService" style="display: inline; font-weight: normal;">Service Request</label>
+                </div>
+                <div>
+                    <input type="radio" name="enquiryType" value="volunteer" id="enqVolunteer">
+                    <label for="enqVolunteer" style="display: inline; font-weight: normal;">Volunteer</label>
+                </div>
+                <div>
+                    <input type="radio" name="enquiryType" value="sponsor" id="enqSponsor">
+                    <label for="enqSponsor" style="display: inline; font-weight: normal;">Sponsorship</label>
+                </div>
+                <span class="error-message" id="enqTypeError">Please select an enquiry type.</span>
+            </div>
+            
+            <div class="form-group">
+                <label for="enqKit">Interested Kit (if applicable):</label>
+                <select id="enqKit" name="kit">
+                    <option value="">-- Select a kit --</option>
+                    <option value="ACMilan07">AC Milan 2007</option>
+                    <option value="Barca99">Barcelona 1999</option>
+                    <option value="England98">England 1998</option>
+                    <option value="France06">France 2006</option>
+                    <option value="Inter96">Inter Milan 1996</option>
+                    <option value="Juve16">Juventus 2016</option>
+                    <option value="Juve98">Juventus 1998</option>
+                    <option value="PSG03">PSG 2003</option>
+                    <option value="RMadrid00">Real Madrid 2000</option>
+                    <option value="other">Other / Not Sure</option>
+                </select>
+            </div>
+            
+            <div class="form-group">
+                <label for="enqMessage">Your Message:</label>
+                <textarea id="enqMessage" name="message" rows="5" placeholder="Tell us more about your enquiry..." required minlength="10"></textarea>
+                <span class="error-message" id="enqMessageError">Please enter a message (at least 10 characters).</span>
+            </div>
+            
+            <input type="submit" value="Submit Enquiry" id="enqSubmit">
+            
+            <div class="form-response" id="enqResponse"></div>
+        </form>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 Retro Vibe | Vintage Football Jerseys</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
