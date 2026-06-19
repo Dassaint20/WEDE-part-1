@@ -12,6 +12,7 @@
    ============================================ */
 html {
     font-size: 16px;
+    scroll-behavior: smooth;
 }
 
 body {
@@ -107,8 +108,110 @@ section {
 }
 
 /* ============================================
-   Product Grid
+   Hero Section (Home)
    ============================================ */
+.hero-section {
+    text-align: center;
+    padding: 3rem 2rem;
+    background-color: #ffffff;
+    border-radius: 8px;
+    border: 1px solid #d7ccc8;
+    margin-bottom: 2rem;
+}
+
+.hero-section h2 {
+    font-size: 2.2rem;
+    margin-bottom: 1rem;
+}
+
+.hero-section p {
+    font-size: 1.1rem;
+    color: #6d4c41;
+    max-width: 600px;
+    margin: 0 auto 1.5rem;
+}
+
+/* ============================================
+   Accordion (About Page)
+   ============================================ */
+.accordion {
+    margin-top: 2rem;
+}
+
+.accordion-item {
+    background-color: #ffffff;
+    border: 1px solid #d7ccc8;
+    border-radius: 8px;
+    margin-bottom: 1rem;
+    overflow: hidden;
+}
+
+.accordion-header {
+    background-color: #f5f0eb;
+    padding: 1rem 1.5rem;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: background-color 0.3s ease;
+}
+
+.accordion-header:hover {
+    background-color: #efebe9;
+}
+
+.accordion-header h3 {
+    margin: 0;
+    font-size: 1.1rem;
+}
+
+.accordion-icon {
+    font-size: 1.2rem;
+    transition: transform 0.3s ease;
+}
+
+.accordion-item.active .accordion-icon {
+    transform: rotate(180deg);
+}
+
+.accordion-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease, padding 0.4s ease;
+    padding: 0 1.5rem;
+}
+
+.accordion-item.active .accordion-content {
+    max-height: 500px;
+    padding: 1rem 1.5rem;
+}
+
+.accordion-content p {
+    margin-bottom: 0.5rem;
+}
+
+/* ============================================
+   Product Grid & Search
+   ============================================ */
+.product-search {
+    margin-bottom: 1.5rem;
+}
+
+.product-search input {
+    width: 100%;
+    padding: 0.8rem 1rem;
+    border: 1px solid #bcaaa4;
+    border-radius: 4px;
+    font-size: 1rem;
+    font-family: inherit;
+}
+
+.product-search input:focus {
+    outline: none;
+    border-color: #80cbc4;
+    box-shadow: 0 0 0 3px rgba(128, 203, 196, 0.2);
+}
+
 .product-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -123,11 +226,13 @@ section {
     overflow: hidden;
     text-align: center;
     padding-bottom: 1rem;
-    transition: box-shadow 0.3s ease;
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
+    cursor: pointer;
 }
 
 .product-card:hover {
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    transform: translateY(-3px);
 }
 
 .product-card img {
@@ -139,10 +244,60 @@ section {
 
 .kit-info {
     margin-top: 0.8rem;
-    margin-bottom: 0;
+    margin-bottom: 0.3rem;
     font-weight: 600;
     color: #5d4037;
     font-size: 0.95rem;
+}
+
+.kit-price {
+    color: #6d4c41;
+    font-size: 0.9rem;
+}
+
+/* Lightbox */
+.lightbox-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.85);
+    z-index: 1000;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.lightbox-overlay.active {
+    display: flex;
+}
+
+.lightbox-img {
+    max-width: 85%;
+    max-height: 80vh;
+    border-radius: 8px;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.5);
+}
+
+.lightbox-caption {
+    color: #fff8f0;
+    margin-top: 1rem;
+    font-size: 1.1rem;
+    text-align: center;
+}
+
+.lightbox-close {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    color: #fff8f0;
+    font-size: 2.5rem;
+    cursor: pointer;
+    background: none;
+    border: none;
+    font-family: inherit;
 }
 
 /* ============================================
@@ -177,7 +332,10 @@ label {
 
 input[type="text"],
 input[type="email"],
-textarea {
+input[type="tel"],
+input[type="date"],
+textarea,
+select {
     width: 100%;
     padding: 0.6rem;
     margin-top: 0.3rem;
@@ -190,7 +348,10 @@ textarea {
 
 input[type="text"]:focus,
 input[type="email"]:focus,
-textarea:focus {
+input[type="tel"]:focus,
+input[type="date"]:focus,
+textarea:focus,
+select:focus {
     outline: none;
     border-color: #80cbc4;
     box-shadow: 0 0 0 3px rgba(128, 203, 196, 0.2);
@@ -221,6 +382,110 @@ input[type="submit"]:active {
     background-color: #3e2723;
 }
 
+/* Form validation styles */
+.form-group {
+    margin-bottom: 0.5rem;
+}
+
+.error-message {
+    color: #c62828;
+    font-size: 0.85rem;
+    margin-top: -0.5rem;
+    margin-bottom: 0.8rem;
+    display: none;
+}
+
+.error-message.visible {
+    display: block;
+}
+
+input.error,
+textarea.error,
+select.error {
+    border-color: #c62828;
+}
+
+input.success,
+textarea.success,
+select.success {
+    border-color: #2e7d32;
+}
+
+/* Form response message */
+.form-response {
+    margin-top: 1rem;
+    padding: 1rem;
+    border-radius: 4px;
+    display: none;
+}
+
+.form-response.success {
+    display: block;
+    background-color: #e8f5e9;
+    color: #2e7d32;
+    border: 1px solid #a5d6a7;
+}
+
+.form-response.error {
+    display: block;
+    background-color: #ffebee;
+    color: #c62828;
+    border: 1px solid #ef9a9a;
+}
+
+/* ============================================
+   Enquiry Page Specific
+   ============================================ */
+.enquiry-type {
+    margin-bottom: 1rem;
+}
+
+.enquiry-type label {
+    display: block;
+    margin-bottom: 0.3rem;
+}
+
+/* ============================================
+   Modal
+   ============================================ */
+.modal-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    z-index: 1000;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-overlay.active {
+    display: flex;
+}
+
+.modal-content {
+    background: #fff8f0;
+    padding: 2rem;
+    border-radius: 8px;
+    max-width: 500px;
+    width: 90%;
+    position: relative;
+    border: 1px solid #d7ccc8;
+}
+
+.modal-close {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 1.5rem;
+    cursor: pointer;
+    background: none;
+    border: none;
+    color: #5d4037;
+}
+
 /* ============================================
    Footer
    ============================================ */
@@ -235,6 +500,18 @@ footer {
 footer p {
     margin: 0;
     font-size: 0.9rem;
+}
+
+/* ============================================
+   Animations
+   ============================================ */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(15px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.fade-in {
+    animation: fadeIn 0.6s ease forwards;
 }
 
 /* ============================================
@@ -272,6 +549,10 @@ footer p {
 
     .product-card img {
         height: 200px;
+    }
+
+    .hero-section h2 {
+        font-size: 1.8rem;
     }
 }
 
@@ -326,5 +607,9 @@ footer p {
 
     form {
         padding: 1.2rem;
+    }
+
+    .lightbox-img {
+        max-width: 95%;
     }
 }
